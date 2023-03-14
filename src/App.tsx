@@ -35,20 +35,32 @@ function App() {
                     value={newListItem}
                     className="newItemInput"
                 />
-                <Button type="primary" onClick={addNewItem}>Add</Button>
-
+                <Button
+					type="primary"
+					id="add-to-list"
+					onClick={addNewItem}
+				>
+					Add
+				</Button>
             </Space.Compact>
+
             <div>
                 {list.length > 0 ? (
                     <List dataSource={list} className="listItems"
                         renderItem={(item, i) => (
-                            <List.Item key={item+i}>
+                            <List.Item key={item+i} className="listItem">
                                 <List.Item.Meta title={item} />
-                                <Button type="primary" danger onClick={() => deleteItem(item)}>Delete</Button>
+                                <Button
+									className="deleteItem"
+									type="primary"
+									danger
+									onClick={() => deleteItem(item)}
+								>
+									Delete
+								</Button>
                             </List.Item>
                         )}
                     />
-
                 ) : (
                     <div className="listMessage">No Items</div>
                 )}
